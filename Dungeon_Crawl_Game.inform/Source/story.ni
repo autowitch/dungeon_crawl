@@ -159,7 +159,10 @@ Instead of searching rubble for the third time:
 Book 3 - The brass lantern
 
 The brass lantern is a thing. The description is "A dented and tarnished brass lantern". The brass lantern is in limbo. The brass lantern can be switched on.
-Gnome porn is a thing. Gnome porn is in limbo.
+gnome porn is a thing. The description is "[first time]Apparently gnome porn is a thing. [only]It appears to be a pornographic magazine dedicated to gnomes. Hopefully whoever this belonged to only read it for the articles. Having been stuck in the ruins of a basement for years, the magazine is both dirty in spirit and condition.". gnome porn is in limbo.
+[Instead of examinin gnome porn:
+	Say "Lots of very close up pictures of short hairy women".]
+Understand "magazine", "zine", "pornography" as gnome porn.
 
 Instead of switching on the brass lantern:
 	Say "You turn on the brass lantern.";
