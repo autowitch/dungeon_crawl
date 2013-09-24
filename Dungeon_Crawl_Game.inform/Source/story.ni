@@ -21,13 +21,22 @@ Book 4 - Some rules
 
 Part 1 - Darkness
 
-Rule for printing a refusal to act in the dark:
-	If we are going, say "It is pitch black. You are likely to be eaten by a grue." instead.
+Rule for printing the description of a dark room:
+	Say "It is pitch black. You are likely to be eaten by a grue.".
 
-Before doing anything in the dark more than three times:
-	If a random chance of one in three succeeds:
-		Say "Oh no! You have walked into the slavering fangs of a lurking grue!";
-		End the story saying "You are tasty.".
+Before going a direction (called d) when in darkness:
+	[ Do not let grues attack if you are fleeing the darkness ]
+	If the room d from the location is a room and the room d from the location is not dark:
+		Continue the action;
+	[ The grues wait a bit ]
+	Otherwise if going more than thrice:
+		If a random chance of one in three succeeds:
+			Say "Oh no! You have walked into the slavering fangs of a lurking grue!";
+			End the story saying "You are tasty.";
+		Otherwise:
+			Continue the action;
+	Otherwise:
+		Continue the action.
 
 Book 5 - New actions
 
@@ -259,7 +268,22 @@ Low Passage is south of Bottom of Rabbit Hole. It is in the underground. It is d
 Muddy Passage is below Low Passage. "[first time]You are quite deep underground now. [only]A tall muddy passage. The floor is wet. There is glowing something growing on the walls and ceiling of this damp place that provides just enough light to see by.". It is in the underground.
 
 
-The Dead Letter Office is a dark room.
+Small room is northeast of Muddy Passage.  It is in the underground.
+
+Narrow Passage is east of Small Room. It is in the underground.
+
+The Interesting Room is a dark room. It is south of the Narrow Passage. It is in the underground.
+
+The sign is in the interesting room. The description of the sign is "'Wait here for something interesting'".
+
+The unstable room is a dark room. It is southwest of the narrow passage. It is in the underground.
+The note is in the unstable room. The description of the note is "Pull rope to collapse ceiling".
+The frayed rope is in the unstable room. [A note is attached to the frayed rope.]
+
+The Dead Letter Office is a dark room. It is northwest of Narrow Passage. It is in the underground.
+
+The turnip room is south of the unstable room. It is in the underground.
+The very angry turnip is a person in the turnip room.
 
 Limbo is  room.
 
