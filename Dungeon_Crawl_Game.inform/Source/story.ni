@@ -10,8 +10,29 @@ Include Spellcasting by Jim Aikin.
 
 Book 2 - Play begins!
 
+Bloodstains is a backdrop. The description is "bloodstains".
+
 When play begins:
-	Say "Your family has been in Skunk Hollow for many generations. Long enough to know the folklore of the area, and long enough to not talk about it.[paragraph break]You had heard rumours of lost treasures hidden somewhere deep in the forest, but no one knows where, or even why, they would be there. You had always chalked that up to local myth.[paragraph break]Yesterday, you decided to spend some time at the library. While you were browsing through books in the 929 category, you spotted a thin, unlabeled pamphlet. Taking a look at it, you found it to be a tedious genealogy of some family you had never heard of. A bit of a close glance revealed that this little book is far weirder. Vague allusions to monsters and demons, inexplicable handwritten notes in the margins and implications of murder and infidelity hide amongst the pages. Near the back was a faded, yellow sheet of paper with a crudely drawn map indicating a house in the forests north of town. The map had numerous notes written all over it - most of them unintelligable. A few phrases like '...was hidden below the cellar' and '' '... must never know' made this  map intriguing. Something worth investigating.[paragraph break]So, now you find yourself with a photocopy of the map (the original is tucked back inside the book) parked at the end of a little used road in a dark forest.".
+	Say "Your family has been in Skunk Hollow for many generations. Long enough to know the folklore of the area, and long enough to not talk about it.[paragraph break]You had heard rumours of lost treasures hidden somewhere deep in the forest, but no one knows where, or even why, they would be there. You had always chalked that up to local myth.[paragraph break]Yesterday, you decided to spend some time at the library. While you were browsing through books in the 929 category, you spotted a thin, unlabeled pamphlet. Taking a look at it, you found it to be a tedious genealogy of some family you had never heard of. A bit of a close glance revealed that this little book is far weirder. Vague allusions to monsters and demons, inexplicable handwritten notes in the margins and implications of murder and infidelity hide amongst the pages. Near the back was a faded, yellow sheet of paper with a crudely drawn map indicating a house in the forests north of town. The map had numerous notes written all over it - most of them unintelligable. A few phrases like '...was hidden below the cellar' and '' '... must never know' made this  map intriguing. Something worth investigating.[paragraph break]So, now you find yourself with a photocopy of the map (the original is tucked back inside the book) parked at the end of a little used road in a dark forest.";
+	[ Add a Wumpus to a wumpus friendly room ]
+	Let wumpus_room be a random wumpus_friendly room;
+	Now the Wumpus is in wumpus_room;
+	Say "!!!! The wumpus is in [wumpus_room][line break]";
+	[ Wumpuses are messy beasts. Each room adjacent room and each room adjacent to that will have blood stains. Damn Wumpuses. ]
+	Repeat with very_bloody_room running through rooms adjacent to wumpus_room:
+		If the very_bloody_room is clean:
+			Say "!!! very bloody [very_bloody_room][line break]";
+			Now the very_bloody_room is bloody;
+			Repeat with bloody_room running through rooms adjacent to very_bloody_room:
+				If the bloody_room is clean:
+					Say "!!!! bloody [bloody_room][line break]";
+					Now the bloody_room is bloody;
+				Otherwise:
+					Say "!!!![bloody_room] is already bloody[line break]";
+		Otherwise:
+			Say "!!! [very_bloody_room] is already bloody.[line break]";
+	Move the Bloodstains backdrop to all bloody rooms.
+
 
 Book 4 - General Settings
 
@@ -54,6 +75,27 @@ Understand "enumerate" as counting.
 ]
 Carry out counting:
 	say "One. One [noun].".
+
+Book 6 - New properties
+
+Every room can be wumpus_friendly or wumpus_unfriendly. A room is usually wumpus_unfriendly.
+Every room can be bloody or clean. A room is usually clean.
+
+Book 7 - New activities
+
+After looking in a room (called foo):
+	If foo is bloody:
+		Say "You can't help but notice the bloodstains all around here.".
+
+[Printing the room-description of something is an activity.
+
+Rule for printing the room-description of a room (called item):
+	if the description of the item is not "":
+		say "FOO [description of item][paragraph break]";
+	otherwise:
+		do nothing instead.]
+
+[The activity-based room description body text rule is listed instead of the room description body text rule in the carry out looking rules.]
 
 Volume 2 - The Player
 
@@ -272,20 +314,20 @@ Small room is northeast of Muddy Passage.  It is in the underground.
 
 Narrow Passage is east of Small Room. It is in the underground.
 
-The Interesting Room is a dark room. It is south of the Narrow Passage. It is in the underground.
+The Interesting Room is a dark room. It is south of the Narrow Passage. It is in the underground.It is wumpus_friendly.
 
 The sign is in the interesting room. The description of the sign is "'Wait here for something interesting'".
 
-The unstable room is a dark room. It is southwest of the narrow passage. It is in the underground.
+The unstable room is a dark room. It is southwest of the narrow passage. It is in the underground. It is wumpus_friendly.
 The note is in the unstable room. The description of the note is "Pull rope to collapse ceiling".
 The frayed rope is in the unstable room. [A note is attached to the frayed rope.]
 
-The Dead Letter Office is a dark room. It is northwest of Narrow Passage. It is in the underground.
+The Dead Letter Office is a dark room. It is northwest of Narrow Passage. It is in the underground. It is wumpus_friendly.
 
-The turnip room is south of the unstable room. It is in the underground.
+The turnip room is south of the unstable room. It is in the underground. It is wumpus_friendly.
 The very angry turnip is a person in the turnip room.
 
 Limbo is  room.
 
-
+The Wumpus is in limbo.
 
